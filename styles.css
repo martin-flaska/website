@@ -1,0 +1,21 @@
+/* Custom styles that go beyond Tailwind */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Geist Sans", sans-serif;
+}
+
+code,
+pre {
+  font-family: "Geist Mono", monospace;
+}
+
+/* This will be used for dark mode in the future */
+/* 
+.dark {
+  --bg-color: #000;
+  --text-color: #fff;
+}
+*/
