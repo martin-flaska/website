@@ -1,6 +1,7 @@
 /* Custom styles that go beyond Tailwind */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 64px; /* For fixed header */
 }
 
 body {
@@ -12,10 +13,136 @@ pre {
   font-family: "Geist Mono", monospace;
 }
 
-/* This will be used for dark mode in the future */
-/* 
-.dark {
-  --bg-color: #000;
-  --text-color: #fff;
+/* Minimal styles - most styling is done with Tailwind directly */
+
+/* Navigation Links */
+.nav-link {
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.3s;
 }
-*/
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #0070f3, #79ffe1);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0070f3;
+}
+
+.dark .nav-link:hover {
+  color: #79ffe1;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #0070f3, #79ffe1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.section-line {
+  height: 3px;
+  width: 60px;
+  background: linear-gradient(to right, #0070f3, #79ffe1);
+  margin: 0 auto;
+  border-radius: 999px;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-gradient-to-r from-accent-blue to-accent-cyan text-white px-6 py-3 rounded-lg hover:shadow-lg hover:shadow-accent-blue/20 transition-all duration-300 font-medium;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-secondary {
+  @apply border border-zinc-300 dark:border-zinc-700 px-6 py-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300 font-medium;
+}
+
+/* Skill Cards */
+.skill-card {
+  @apply border border-zinc-200 dark:border-zinc-700 p-6 rounded-xl bg-white dark:bg-zinc-800 shadow-soft hover:shadow-soft-xl transition-all duration-300 transform hover:-translate-y-1;
+}
+
+/* Project Cards */
+.project-card {
+  @apply border border-zinc-200 dark:border-zinc-700 rounded-xl overflow-hidden bg-white dark:bg-zinc-800 shadow-soft hover:shadow-soft-xl transition-all duration-300;
+}
+
+/* Tech Tags */
+.tech-tag {
+  @apply bg-zinc-100 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-300 text-xs px-2 py-1 rounded-md;
+}
+
+/* Contact Items */
+.contact-item {
+  @apply flex items-center hover:text-accent-blue dark:hover:text-accent-cyan transition-colors;
+}
+
+.contact-icon {
+  @apply bg-gradient-to-r from-accent-blue to-accent-cyan text-white p-3 rounded-full flex items-center justify-center w-10 h-10 shadow-soft;
+}
+
+/* Social Icons */
+.social-icon {
+  @apply bg-zinc-100 dark:bg-zinc-700 p-3 rounded-full text-zinc-700 dark:text-zinc-300 hover:bg-accent-blue hover:text-white dark:hover:bg-accent-cyan transition-all duration-300 transform hover:-translate-y-1 shadow-soft;
+}
+
+/* Animations for scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dark mode transition */
+.dark .skill-card,
+.dark .project-card,
+.dark .social-icon {
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}

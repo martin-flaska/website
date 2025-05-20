@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martin Flaška - Software Engineer</title>
+    <title>Martin Flaška | Software Engineer</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Kit -->
@@ -15,150 +15,197 @@
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
                         'geist-sans': ['Geist Sans', 'sans-serif'],
                         'geist-mono': ['Geist Mono', 'monospace'],
-                    },
+                    }
                 }
             }
         }
     </script>
 </head>
-<body class="font-geist-sans bg-white text-gray-900">
+<body class="font-geist-sans bg-white text-black dark:bg-black dark:text-white antialiased">
     <!-- Header/Navigation -->
-    <header class="border-b border-gray-200 py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="text-xl font-bold">Martin Flaška</div>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="#about" class="hover:text-gray-600">About</a></li>
-                    <li><a href="#skills" class="hover:text-gray-600">Skills</a></li>
-                    <li><a href="#projects" class="hover:text-gray-600">Projects</a></li>
-                    <li><a href="#contact" class="hover:text-gray-600">Contact</a></li>
+    <header class="fixed top-0 left-0 right-0 z-50 border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-black/80 backdrop-blur-sm">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="font-medium">Martin Flaška</div>
+            <div class="flex items-center space-x-8">
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#about" class="hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">About</a></li>
+                        <li><a href="#skills" class="hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">Skills</a></li>
+                        <li><a href="#projects" class="hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">Projects</a></li>
+                        <li><a href="#contact" class="hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">Contact</a></li>
+                    </ul>
+                </nav>
+                <button id="theme-toggle" class="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-md transition-colors">
+                    <i class="fas fa-moon dark:hidden text-sm"></i>
+                    <i class="fas fa-sun hidden dark:block text-sm"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden p-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-md transition-colors">
+                    <i class="fas fa-bars text-sm"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black">
+            <nav class="max-w-5xl mx-auto px-6 py-4">
+                <ul class="space-y-4">
+                    <li><a href="#about" class="block py-2 hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">About</a></li>
+                    <li><a href="#skills" class="block py-2 hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">Skills</a></li>
+                    <li><a href="#projects" class="block py-2 hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">Projects</a></li>
+                    <li><a href="#contact" class="block py-2 hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="py-20">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Martin Flaška</h1>
-                <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">Software Engineer</h2>
-                <p class="text-lg mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition">Get in touch</a>
-                    <a href="#projects" class="border border-gray-300 px-6 py-3 rounded-md hover:bg-gray-100 transition">View Projects</a>
+    <section class="pt-32 pb-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-3/5 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Martin Flaška</h1>
+                    <h2 class="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 mb-6">Software Engineer</h2>
+                    <p class="text-zinc-600 dark:text-zinc-400 mb-8 max-w-lg">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-black text-white dark:bg-white dark:text-black px-4 py-2 rounded-md hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors">
+                            Get in touch
+                        </a>
+                        <a href="#projects" class="border border-zinc-200 dark:border-zinc-800 px-4 py-2 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+                            View Projects
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <img src="martin-flaska.jpg" alt="Martin Flaška" class="rounded-full w-64 h-64 object-cover border-4 border-gray-200">
+                <div class="md:w-2/5 flex justify-center">
+                    <div class="border border-zinc-200 dark:border-zinc-800 rounded-full p-1">
+                        <img src="martin-flaska.jpg" alt="Martin Flaška" class="rounded-full w-48 h-48 object-cover">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center">About Me</h2>
-            <div class="max-w-3xl mx-auto">
-                <p class="text-lg mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
-                <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+    <section id="about" class="py-20 border-t border-zinc-200 dark:border-zinc-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-8">About Me</h2>
+            <div class="max-w-3xl">
+                <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.
+                </p>
+                <p class="text-zinc-600 dark:text-zinc-400">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center">Skills & Technologies</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="border border-gray-200 p-6 rounded-lg text-center">
-                    <i class="fas fa-code text-4xl mb-4"></i>
-                    <h3 class="font-medium">Something</h3>
+    <section id="skills" class="py-20 border-t border-zinc-200 dark:border-zinc-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-8">Skills & Technologies</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="border border-zinc-200 dark:border-zinc-800 p-6 rounded-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                    <i class="fas fa-code text-2xl mb-3"></i>
+                    <h3 class="font-medium">Skill</h3>
                 </div>
-                <div class="border border-gray-200 p-6 rounded-lg text-center">
-                    <i class="fas fa-code text-4xl mb-4"></i>
-                    <h3 class="font-medium">Something</h3>
+                <div class="border border-zinc-200 dark:border-zinc-800 p-6 rounded-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                    <i class="fas fa-code text-2xl mb-3"></i>
+                    <h3 class="font-medium">Skill</h3>
                 </div>
-                <div class="border border-gray-200 p-6 rounded-lg text-center">
-                    <i class="fas fa-code text-4xl mb-4"></i>
-                    <h3 class="font-medium">Something</h3>
+                <div class="border border-zinc-200 dark:border-zinc-800 p-6 rounded-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                    <i class="fas fa-code text-2xl mb-3"></i>
+                    <h3 class="font-medium">Skill</h3>
                 </div>
-                <div class="border border-gray-200 p-6 rounded-lg text-center">
-                    <i class="fas fa-code text-4xl mb-4"></i>
-                    <h3 class="font-medium">Something</h3>
+                <div class="border border-zinc-200 dark:border-zinc-800 p-6 rounded-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                    <i class="fas fa-code text-2xl mb-3"></i>
+                    <h3 class="font-medium">Skill</h3>
                 </div>
-                <div class="border border-gray-200 p-6 rounded-lg text-center">
-                    <i class="fas fa-code text-4xl mb-4"></i>
-                    <h3 class="font-medium">Something</h3>
+                <div class="border border-zinc-200 dark:border-zinc-800 p-6 rounded-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                    <i class="fas fa-code text-2xl mb-3"></i>
+                    <h3 class="font-medium">Skill</h3>
                 </div>
-                <div class="border border-gray-200 p-6 rounded-lg text-center">
-                    <i class="fas fa-code text-4xl mb-4"></i>
-                    <h3 class="font-medium">Something</h3>
+                <div class="border border-zinc-200 dark:border-zinc-800 p-6 rounded-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                    <i class="fas fa-code text-2xl mb-3"></i>
+                    <h3 class="font-medium">Skill</h3>
                 </div>
-                <div class="border border-gray-200 p-6 rounded-lg text-center">
-                    <i class="fas fa-code text-4xl mb-4"></i>
-                    <h3 class="font-medium">Something</h3>
+                <div class="border border-zinc-200 dark:border-zinc-800 p-6 rounded-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                    <i class="fas fa-code text-2xl mb-3"></i>
+                    <h3 class="font-medium">Skill</h3>
                 </div>
-                <div class="border border-gray-200 p-6 rounded-lg text-center">
-                    <i class="fas fa-code text-4xl mb-4"></i>
-                    <h3 class="font-medium">Something</h3>
+                <div class="border border-zinc-200 dark:border-zinc-800 p-6 rounded-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                    <i class="fas fa-code text-2xl mb-3"></i>
+                    <h3 class="font-medium">Skill</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="projects" class="py-20 border-t border-zinc-200 dark:border-zinc-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Project 1 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <div class="h-48 bg-gray-200"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Project One</h3>
-                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Something</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Something</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Something</span>
+                <div class="border border-zinc-200 dark:border-zinc-800 rounded-md overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                    <div class="h-40 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center">
+                        <i class="fas fa-code text-2xl text-zinc-400"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium mb-2">Project One</h3>
+                        <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs px-2 py-1 rounded-md">Tech Stack</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs px-2 py-1 rounded-md">Tech Stack</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs px-2 py-1 rounded-md">Tech Stack</span>
                         </div>
-                        <a href="#" class="text-black font-medium hover:underline">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="#" class="text-sm font-medium hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">
+                            View Project →
+                        </a>
                     </div>
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <div class="h-48 bg-gray-200"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Project Two</h3>
-                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Something</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Something</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Something</span>
+                <div class="border border-zinc-200 dark:border-zinc-800 rounded-md overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                    <div class="h-40 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-2xl text-zinc-400"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium mb-2">Project Two</h3>
+                        <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs px-2 py-1 rounded-md">Tech Stack</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs px-2 py-1 rounded-md">Tech Stack</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs px-2 py-1 rounded-md">Tech Stack</span>
                         </div>
-                        <a href="#" class="text-black font-medium hover:underline">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="#" class="text-sm font-medium hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">
+                            View Project →
+                        </a>
                     </div>
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <div class="h-48 bg-gray-200"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Project Three</h3>
-                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Something</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Something</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Something</span>
+                <div class="border border-zinc-200 dark:border-zinc-800 rounded-md overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                    <div class="h-40 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-2xl text-zinc-400"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium mb-2">Project Three</h3>
+                        <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs px-2 py-1 rounded-md">Tech Stack</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs px-2 py-1 rounded-md">Tech Stack</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs px-2 py-1 rounded-md">Tech Stack</span>
                         </div>
-                        <a href="#" class="text-black font-medium hover:underline">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="#" class="text-sm font-medium hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">
+                            View Project →
+                        </a>
                     </div>
                 </div>
             </div>
@@ -166,54 +213,58 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center">Get In Touch</h2>
-            <div class="max-w-xl mx-auto bg-white p-8 rounded-lg border border-gray-200">
-                <p class="mb-8 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Feel free to reach out through any of the channels below.</p>
-                
-                <div class="space-y-6">
-                    <div class="flex items-center">
-                        <div class="bg-gray-100 p-3 rounded-full">
-                            <i class="fas fa-envelope text-gray-700"></i>
+    <section id="contact" class="py-20 border-t border-zinc-200 dark:border-zinc-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-8">Get In Touch</h2>
+            <div class="max-w-xl">
+                <div class="border border-zinc-200 dark:border-zinc-800 p-6 rounded-md">
+                    <p class="text-zinc-600 dark:text-zinc-400 mb-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Feel free to reach out through any of the channels below.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="fas fa-envelope text-sm"></i>
+                            </div>
+                            <span class="ml-3 text-zinc-600 dark:text-zinc-400">email@example.com</span>
                         </div>
-                        <span class="ml-4">email@example.com</span>
+                        
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="fas fa-phone text-sm"></i>
+                            </div>
+                            <span class="ml-3 text-zinc-600 dark:text-zinc-400">+1 (123) 456-7890</span>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-sm"></i>
+                            </div>
+                            <span class="ml-3 text-zinc-600 dark:text-zinc-400">City, Country</span>
+                        </div>
                     </div>
                     
-                    <div class="flex items-center">
-                        <div class="bg-gray-100 p-3 rounded-full">
-                            <i class="fas fa-phone text-gray-700"></i>
-                        </div>
-                        <span class="ml-4">+1 (123) 456-7890</span>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="w-8 h-8 border border-zinc-200 dark:border-zinc-800 rounded-md flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+                            <i class="fab fa-github text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 border border-zinc-200 dark:border-zinc-800 rounded-md flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 border border-zinc-200 dark:border-zinc-800 rounded-md flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
                     </div>
-                    
-                    <div class="flex items-center">
-                        <div class="bg-gray-100 p-3 rounded-full">
-                            <i class="fas fa-map-marker-alt text-gray-700"></i>
-                        </div>
-                        <span class="ml-4">City, Country</span>
-                    </div>
-                </div>
-                
-                <div class="flex justify-center space-x-6 mt-8">
-                    <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-gray-200 transition">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-gray-200 transition">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-gray-200 transition">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 border-t border-gray-200">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Martin Flaška. All rights reserved.</p>
+    <footer class="py-6 border-t border-zinc-200 dark:border-zinc-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <p class="text-zinc-600 dark:text-zinc-400 text-sm">&copy; 2025 Martin Flaška. All rights reserved.</p>
         </div>
     </footer>
 
