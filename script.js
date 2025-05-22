@@ -1,5 +1,13 @@
+// Import skills and projects modules
+import { renderSkills } from "./skills.js"
+import { renderProjects } from "./projects.js"
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Portfolio site loaded")
+
+  // Render skills and projects
+  renderSkills()
+  renderProjects()
 
   // Theme toggle functionality
   const themeToggle = document.getElementById("theme-toggle")
@@ -34,5 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", () => {
       mobileMenu.classList.add("hidden")
     })
+  })
+
+  // Command + K (or Ctrl + K) menu
+  document.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      e.preventDefault()
+      // Implementation for command menu would go here
+      console.log("Command menu triggered")
+    }
   })
 })
