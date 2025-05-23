@@ -1,4 +1,28 @@
-// Array of skills with their details, organized by categories
+/**
+ * Skills Configuration File
+ *
+ * This file contains all the skills and technologies to be displayed
+ * in the Skills section of the portfolio website.
+ *
+ * HOW TO EDIT:
+ * 1. To add a new skill: Add a new object to the appropriate category's skills array
+ * 2. To add a new category: Add a new object to the skillCategories array
+ * 3. To remove a skill: Delete the object from the skills array
+ * 4. To change skill order: Reorder the objects in the array
+ *
+ * SKILL OBJECT STRUCTURE:
+ * {
+ *   id: "unique-identifier",        // Unique ID for the skill
+ *   name: "Display Name",           // Name shown to users
+ *   icon: "fas fa-icon-name"        // FontAwesome icon class
+ * }
+ *
+ * ICON REFERENCE:
+ * Icons use FontAwesome classes. Find icons at: https://fontawesome.com/icons
+ * Examples: "fab fa-react", "fas fa-code", "fab fa-python"
+ */
+
+// Array of skill categories with their associated skills
 const skillCategories = [
   {
     id: "languages",
@@ -90,70 +114,102 @@ const skillCategories = [
   },
 ]
 
-// Function to render skills to the DOM
+/**
+ * Renders the skills section with tabbed interface
+ *
+ * This function:
+ * 1. Creates tab buttons for each skill category
+ * 2. Creates content panels with skill tags for each category
+ * 3. Sets up click handlers for tab switching
+ * 4. Shows the first category by default
+ *
+ * CUSTOMIZATION:
+ * - To change the default active tab, modify the index check in the forEach loop
+ * - To change tab styling, update the className assignments
+ * - To change skill tag appearance, modify the skillTag.className
+ */
 function renderSkills() {
+  // Get DOM elements - these IDs must exist in the HTML
   const skillsContainer = document.getElementById("skills-container")
   const skillsTabs = document.getElementById("skills-tabs")
   const skillsContent = document.getElementById("skills-content")
 
+  // Error handling - ensure all required elements exist
   if (!skillsContainer || !skillsTabs || !skillsContent) {
-    console.error("Skills containers not found")
+    console.error("Skills containers not found - check HTML for required IDs")
     return
   }
 
-  // Clear the containers
+  // Clear existing content to prevent duplication
   skillsTabs.innerHTML = ""
   skillsContent.innerHTML = ""
 
-  // Add tabs for each category
+  // Generate tabs and content for each skill category
   skillCategories.forEach((category, index) => {
-    // Create tab
+    // CREATE TAB BUTTON
     const tab = document.createElement("button")
+
+    // Set tab styling - first tab is active by default
     tab.className = `px-4 py-2 text-sm font-medium ${
       index === 0
-        ? "border-b-2 border-black dark:border-white"
-        : "text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white"
+        ? "border-b-2 border-black dark:border-white" // Active tab styling
+        : "text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white" // Inactive tab styling
     }`
+
     tab.textContent = category.name
-    tab.dataset.tab = category.id
+    tab.dataset.tab = category.id // Store category ID for tab switching
     skillsTabs.appendChild(tab)
 
-    // Create content panel
+    // CREATE CONTENT PANEL
     const panel = document.createElement("div")
-    panel.className = `${index === 0 ? "" : "hidden"} flex flex-wrap gap-2`
-    panel.dataset.panel = category.id
 
-    // Add skills as tags
+    // Set panel styling - first panel is visible by default
+    panel.className = `${index === 0 ? "" : "hidden"} flex flex-wrap gap-2`
+    panel.dataset.panel = category.id // Store category ID for panel switching
+
+    // CREATE SKILL TAGS
     category.skills.forEach((skill) => {
       const skillTag = document.createElement("div")
+
+      // Style skill tags as compact pills with icons
       skillTag.className =
         "flex items-center bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 px-3 py-1.5 rounded-md text-sm"
+
+      // Add icon and skill name
       skillTag.innerHTML = `
         <i class="${skill.icon} mr-2 text-xs"></i>
         ${skill.name}
       `
+
       panel.appendChild(skillTag)
     })
 
     skillsContent.appendChild(panel)
   })
 
-  // Add tab switching functionality
+  // SET UP TAB SWITCHING FUNCTIONALITY
   const tabs = skillsTabs.querySelectorAll("button")
+
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
-      // Update tab styles
+      // UPDATE TAB STYLES
+      // Reset all tabs to inactive state
       tabs.forEach((t) => {
         t.className =
           "px-4 py-2 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white"
       })
+
+      // Set clicked tab to active state
       tab.className = "px-4 py-2 text-sm font-medium border-b-2 border-black dark:border-white"
 
-      // Show the selected panel
+      // UPDATE PANEL VISIBILITY
+      // Hide all panels
       const panels = skillsContent.querySelectorAll("div[data-panel]")
       panels.forEach((panel) => {
         panel.classList.add("hidden")
       })
+
+      // Show the selected panel
       const selectedPanel = skillsContent.querySelector(`div[data-panel="${tab.dataset.tab}"]`)
       if (selectedPanel) {
         selectedPanel.classList.remove("hidden")
@@ -162,5 +218,5 @@ function renderSkills() {
   })
 }
 
-// Export the skills and render function
+// Export functions and data for use in other modules
 export { skillCategories, renderSkills }
