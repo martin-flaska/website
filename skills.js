@@ -23,6 +23,7 @@
  */
 
 // Array of skill categories with their associated skills
+// Export functions and data for use in other modules
 const skillCategories = [
   {
     id: "languages",
@@ -32,20 +33,18 @@ const skillCategories = [
       { id: "cpp", name: "C++", icon: "fas fa-code" },
       { id: "csharp", name: "C#", icon: "fas fa-code" },
       { id: "python", name: "Python", icon: "fab fa-python" },
-      { id: "markdown", name: "Markdown", icon: "fas fa-file-code" },
-      { id: "powershell", name: "PowerShell", icon: "fas fa-terminal" },
-      { id: "bash", name: "Bash Script", icon: "fas fa-terminal" },
     ],
   },
   {
     id: "frameworks",
-    name: "Frameworks / Libraries",
+    name: "Frameworks / Platform / Libraries",
     skills: [
-      { id: "qt", name: "Qt", icon: "fas fa-window-restore" },
+      { id: "qt", name: "Qt Core", icon: "fas fa-window-restore" },
       { id: "stl", name: "STL", icon: "fas fa-cubes" },
       { id: "poco", name: "Poco", icon: "fas fa-cubes" },
       { id: "gtest", name: "Google Test", icon: "fas fa-vial" },
       { id: "qttest", name: "Qt Test", icon: "fas fa-vial" },
+      { id: "yocto", name: "Yocto", icon: "fas fa-layer-group" },
     ],
   },
   {
@@ -54,50 +53,56 @@ const skillCategories = [
     skills: [
       { id: "embedded", name: "Embedded Systems", icon: "fas fa-microchip" },
       { id: "linux", name: "Linux", icon: "fab fa-linux" },
-      { id: "x86", name: "x86", icon: "fas fa-microchip" },
-      { id: "arm", name: "ARM", icon: "fas fa-microchip" },
-      { id: "yocto", name: "Yocto", icon: "fas fa-layer-group" },
-      { id: "arduino", name: "Arduino", icon: "fab fa-arduino" },
-      { id: "raspberrypi", name: "Raspberry Pi", icon: "fab fa-raspberry-pi" },
+      { id: "x86", name: "x86/ARM", icon: "fas fa-microchip" },
     ],
   },
   {
-    id: "tools",
-    name: "Development Tools",
+    id: "cicd",
+    name: "CI/CD",
     skills: [
-      { id: "git", name: "Git", icon: "fab fa-git-alt" },
       { id: "github", name: "GitHub", icon: "fab fa-github" },
       { id: "bitbucket", name: "BitBucket", icon: "fab fa-bitbucket" },
       { id: "jenkins", name: "Jenkins", icon: "fab fa-jenkins" },
-      { id: "docker", name: "Docker", icon: "fab fa-docker" },
-      { id: "jira", name: "Jira", icon: "fab fa-jira" },
+    ],
+  },
+  {
+    id: "scm",
+    name: "SCM",
+    skills: [
+      { id: "git", name: "Git", icon: "fab fa-git-alt" },
       { id: "svn", name: "SVN", icon: "fas fa-code-branch" },
       { id: "cvs", name: "CVS", icon: "fas fa-code-branch" },
-      { id: "cmake", name: "CMake", icon: "fas fa-file-code" },
+    ],
+  },
+  {
+    id: "scheduling",
+    name: "Scheduling Systems",
+    skills: [
+      { id: "kanban", name: "Kanban", icon: "fas fa-tasks" },
+      { id: "scrum", name: "Scrum", icon: "fas fa-users" },
+    ],
+  },
+  {
+    id: "bugtracking",
+    name: "Bug Tracking",
+    skills: [
+      { id: "bugzilla", name: "Bugzilla", icon: "fas fa-bug" },
+      { id: "fogbugz", name: "FogBugz", icon: "fas fa-bug" },
+      { id: "jira", name: "Jira", icon: "fab fa-jira" },
     ],
   },
   {
     id: "other",
-    name: "Other Technologies",
+    name: "Other",
     skills: [
       { id: "iot", name: "IoT", icon: "fas fa-network-wired" },
       { id: "knx", name: "KNX", icon: "fas fa-home" },
       { id: "matter", name: "Matter", icon: "fas fa-project-diagram" },
       { id: "bt", name: "BT/BLE", icon: "fab fa-bluetooth-b" },
-      { id: "can", name: "CAN/CANopen", icon: "fas fa-exchange-alt" },
-      { id: "iec", name: "IEC 60870", icon: "fas fa-bolt" },
+      { id: "electronics", name: "Electronics", icon: "fas fa-tools" },
       { id: "scada", name: "SCADA", icon: "fas fa-industry" },
-      { id: "apache", name: "Apache", icon: "fab fa-apache" },
-      { id: "gimp", name: "Gimp", icon: "fas fa-paint-brush" },
-    ],
-  },
-  {
-    id: "methodologies",
-    name: "Methodologies",
-    skills: [
-      { id: "kanban", name: "Kanban", icon: "fas fa-tasks" },
-      { id: "scrum", name: "Scrum", icon: "fas fa-users" },
-      { id: "cicd", name: "CI/CD", icon: "fas fa-sync-alt" },
+      { id: "can", name: "CAN/CANopen", icon: "fas fa-exchange-alt" },
+      { id: "iec", name: "IEC 60870-5-10x", icon: "fas fa-bolt" },
     ],
   },
   {
@@ -218,5 +223,4 @@ function renderSkills() {
   })
 }
 
-// Export functions and data for use in other modules
 export { skillCategories, renderSkills }

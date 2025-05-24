@@ -39,7 +39,7 @@ const projects = [
     outcome: "The product achieved significant success in the global market.",
     icon: "fas fa-music",
     tags: ["Linux", "C++", "IoT", "KNX", "Music Services"],
-    link: "#", // TODO: Replace with actual project link
+    link: "https://www.legrand.us/nuvo/player-portfolio",
     featured: true, // This project will be displayed prominently
   },
   {
