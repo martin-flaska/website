@@ -1,0 +1,240 @@
+/* 
+ * Custom CSS for Martin Flaška's Portfolio Website
+ * This file contains styles that extend Tailwind CSS functionality
+ * Most styling is done with Tailwind classes directly in HTML
+ */
+
+/* ===== BASE STYLES ===== */
+
+/* Smooth scrolling behavior for the entire page */
+html {
+  scroll-behavior: smooth;
+  /* Offset for fixed header when scrolling to sections */
+  scroll-padding-top: 64px;
+}
+
+/* Primary font family for the website */
+body {
+  font-family: "Geist Sans", sans-serif;
+
+  /* Subtle background grid pattern for visual interest */
+  /* Light mode: dark lines on transparent background */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Dark mode background grid */
+.dark body {
+  /* Dark mode: light lines on transparent background */
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Monospace font for code elements */
+code,
+pre {
+  font-family: "Geist Mono", monospace;
+}
+
+/* ===== NAVIGATION STYLES ===== */
+
+/* 
+ * Navigation link hover effects
+ * Creates an animated underline on hover
+ */
+.nav-link {
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.3s;
+}
+
+/* Animated underline effect */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  /* Gradient underline for visual appeal */
+  background: linear-gradient(to right, #0070f3, #79ffe1);
+  /* Start hidden (scaled to 0) */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+/* Light mode hover color */
+.nav-link:hover {
+  color: #0070f3;
+}
+
+/* Dark mode hover color */
+.dark .nav-link:hover {
+  color: #79ffe1;
+}
+
+/* Show underline on hover */
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ===== SECTION HEADER STYLES ===== */
+
+/* 
+ * Reusable styles for section headers
+ * Currently not used but available for future enhancements
+ */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  /* Gradient text effect */
+  background: linear-gradient(to right, #0070f3, #79ffe1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.section-line {
+  height: 3px;
+  width: 60px;
+  background: linear-gradient(to right, #0070f3, #79ffe1);
+  margin: 0 auto;
+  border-radius: 999px;
+}
+
+/* ===== BUTTON STYLES ===== */
+
+/* 
+ * Primary button with gradient background and shine effect
+ * Currently not used but available for future enhancements
+ */
+.btn-primary {
+  @apply bg-gradient-to-r from-accent-blue to-accent-cyan text-white px-6 py-3 rounded-lg hover:shadow-lg hover:shadow-accent-blue/20 transition-all duration-300 font-medium;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine effect on hover */
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* Secondary button style */
+.btn-secondary {
+  @apply border border-zinc-300 dark:border-zinc-700 px-6 py-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300 font-medium;
+}
+
+/* ===== COMPONENT STYLES ===== */
+
+/* 
+ * Skill card styles (currently not used due to tabbed interface)
+ * Available for future use if switching back to card layout
+ */
+.skill-card {
+  @apply border border-zinc-200 dark:border-zinc-700 p-6 rounded-xl bg-white dark:bg-zinc-800 shadow-soft hover:shadow-soft-xl transition-all duration-300 transform hover:-translate-y-1;
+}
+
+/* Project card styles (currently not used but available) */
+.project-card {
+  @apply border border-zinc-200 dark:border-zinc-700 rounded-xl overflow-hidden bg-white dark:bg-zinc-800 shadow-soft hover:shadow-soft-xl transition-all duration-300;
+}
+
+/* Technology tag styles (used in projects) */
+.tech-tag {
+  @apply bg-zinc-100 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-300 text-xs px-2 py-1 rounded-md;
+}
+
+/* Contact item styles */
+.contact-item {
+  @apply flex items-center hover:text-accent-blue dark:hover:text-accent-cyan transition-colors;
+}
+
+/* Contact icon with gradient background */
+.contact-icon {
+  @apply bg-gradient-to-r from-accent-blue to-accent-cyan text-white p-3 rounded-full flex items-center justify-center w-10 h-10 shadow-soft;
+}
+
+/* Social media icon styles */
+.social-icon {
+  @apply bg-zinc-100 dark:bg-zinc-700 p-3 rounded-full text-zinc-700 dark:text-zinc-300 hover:bg-accent-blue hover:text-white dark:hover:bg-accent-cyan transition-all duration-300 transform hover:-translate-y-1 shadow-soft;
+}
+
+/* ===== ANIMATION STYLES ===== */
+
+/* 
+ * Scroll reveal animations (currently not implemented)
+ * Available for future enhancements to animate elements on scroll
+ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== DARK MODE TRANSITIONS ===== */
+
+/* 
+ * Smooth transitions for dark mode switching
+ * Ensures all interactive elements transition smoothly between themes
+ */
+.dark .skill-card,
+.dark .project-card,
+.dark .social-icon {
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+/* ===== RESPONSIVE DESIGN NOTES ===== */
+
+/* 
+ * Most responsive design is handled by Tailwind CSS classes in the HTML
+ * Key breakpoints used:
+ * - sm: 640px and up
+ * - md: 768px and up  
+ * - lg: 1024px and up
+ * - xl: 1280px and up
+ * 
+ * The design is mobile-first, with desktop enhancements added via responsive classes
+ */
+
+/* ===== ACCESSIBILITY NOTES ===== */
+
+/* 
+ * Accessibility considerations implemented:
+ * - High contrast colors for readability
+ * - Focus states for keyboard navigation
+ * - Semantic HTML structure
+ * - Alt text for images
+ * - Proper heading hierarchy
+ * 
+ * Future improvements could include:
+ * - Skip to content link
+ * - ARIA labels for complex interactions
+ * - Reduced motion preferences
+ */
