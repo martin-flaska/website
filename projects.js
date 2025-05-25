@@ -39,7 +39,6 @@ const projects = [
     outcome: "The product achieved significant success in the global market.",
     icon: "fas fa-music",
     tags: ["Linux", "C++", "IoT", "KNX", "Music Services"],
-    link: "https://www.legrand.us/nuvo/player-portfolio",
     featured: true, // This project will be displayed prominently
   },
   {
@@ -50,7 +49,6 @@ const projects = [
     outcome: "The product was successfully deployed and is currently being further improved with new features.",
     icon: "fas fa-industry",
     tags: ["Embedded Linux", "C++", "Yocto", "BT LE", "RFID"],
-    link: "#", // TODO: Replace with actual project link
     featured: false,
   },
   {
@@ -62,7 +60,6 @@ const projects = [
     outcome: "Successfully deployed across most electrical distribution networks in Slovakia and the Czech Republic.",
     icon: "fas fa-bolt",
     tags: ["QNX", "SCADA", "CI/CD", "Power Grid"],
-    link: "#", // TODO: Replace with actual project link
     featured: true, // This project will be displayed prominently
   },
 ]
@@ -143,11 +140,6 @@ function renderProjects() {
         <div class="flex flex-wrap gap-2 mb-4">
           ${tagsHTML}
         </div>
-        
-        <!-- Project Link -->
-        <a href="${project.link}" class="text-sm font-medium hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">
-          View Project →
-        </a>
       </div>
     `
 
