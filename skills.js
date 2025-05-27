@@ -98,7 +98,7 @@ const skillCategories = [
       { id: "iot", name: "IoT", icon: "fas fa-network-wired" },
       { id: "knx", name: "KNX", icon: "fas fa-home" },
       { id: "matter", name: "Matter", icon: "fas fa-project-diagram" },
-      { id: "bt", name: "BT/BLE", icon: "fab fa-bluetooth-b" },
+      { id: "bt", name: "BT/BT LE", icon: "fab fa-bluetooth-b" },
       { id: "electronics", name: "Electronics", icon: "fas fa-tools" },
       { id: "scada", name: "SCADA", icon: "fas fa-industry" },
       { id: "can", name: "CAN/CANopen", icon: "fas fa-exchange-alt" },
